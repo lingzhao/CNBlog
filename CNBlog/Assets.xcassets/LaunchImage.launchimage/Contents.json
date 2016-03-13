@@ -58,6 +58,10 @@
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
+    },
+    {
+      "filename" : "LaunchImage@3x.png",
+      "unassigned" : true
     }
   ],
   "info" : {
