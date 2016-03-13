@@ -96,7 +96,7 @@
     
     // 头像url转码处理
     NSString *urlString = [blogModel.avatar stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"tabBar_me_click_icon"] options:SDWebImageRefreshCached];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"cnBlogBlack"] options:SDWebImageRefreshCached];
     
     self.textLabel.text = blogModel.name;
     

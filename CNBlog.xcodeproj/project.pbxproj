@@ -35,7 +35,6 @@
 		66F6F8911C84273D00043864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F6F8901C84273D00043864 /* Assets.xcassets */; };
 		66F6F89D1C84286B00043864 /* SMBlogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F6F89C1C84286B00043864 /* SMBlogTableViewController.m */; };
 		66F6F8A01C84287A00043864 /* SMNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F6F89F1C84287A00043864 /* SMNewsTableViewController.m */; };
-		66F6F8A21C84292900043864 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F6F8A11C84292900043864 /* Launch Screen.storyboard */; };
 		66F6F8A51C84422800043864 /* SMBlogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F6F8A41C84422800043864 /* SMBlogTableViewCell.m */; };
 		66F6F8A81C8442BC00043864 /* SMBlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F6F8A71C8442BC00043864 /* SMBlogModel.m */; };
 /* End PBXBuildFile section */
@@ -96,7 +95,6 @@
 		66F6F89C1C84286B00043864 /* SMBlogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBlogTableViewController.m; sourceTree = "<group>"; };
 		66F6F89E1C84287A00043864 /* SMNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNewsTableViewController.h; sourceTree = "<group>"; };
 		66F6F89F1C84287A00043864 /* SMNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNewsTableViewController.m; sourceTree = "<group>"; };
-		66F6F8A11C84292900043864 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		66F6F8A31C84422800043864 /* SMBlogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBlogTableViewCell.h; sourceTree = "<group>"; };
 		66F6F8A41C84422800043864 /* SMBlogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBlogTableViewCell.m; sourceTree = "<group>"; };
 		66F6F8A61C8442BC00043864 /* SMBlogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBlogModel.h; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 			children = (
 				66F6F8901C84273D00043864 /* Assets.xcassets */,
 				664B5DB01C8AC6DF0053A0FA /* PrefixHeader.pch */,
-				66F6F8A11C84292900043864 /* Launch Screen.storyboard */,
 				66F6F8951C84273D00043864 /* Info.plist */,
 				66F6F8851C84273D00043864 /* main.m */,
 			);
@@ -399,7 +396,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				665FE5E71C95608800F3BD34 /* SMSettingMainTableViewController.storyboard in Resources */,
-				66F6F8A21C84292900043864 /* Launch Screen.storyboard in Resources */,
 				66F6F8911C84273D00043864 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +573,7 @@
 			baseConfigurationReference = 7C1A2FEBA323E3C4A23BFF1D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/CNBlog/PrefixHeader.pch;
 				INFOPLIST_FILE = CNBlog/Info.plist;
@@ -591,6 +588,7 @@
 			baseConfigurationReference = 70F571558350F6B5A80DEBB3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/CNBlog/PrefixHeader.pch;
 				INFOPLIST_FILE = CNBlog/Info.plist;

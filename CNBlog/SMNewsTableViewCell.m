@@ -94,7 +94,7 @@
     _newsModel = newsModel;
     NSString *urlString = [newsModel.topicIcon stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
 //    NSLog(@"%@", urlString);
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"tabBar_me_click_icon"] options:SDWebImageRefreshCached];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] placeholderImage:[UIImage imageNamed:@"cnBlogLong"] options:SDWebImageRefreshCached];
     [self.textLabel setText:newsModel.title];
     [self.detailTextLabel setText:[NSString sm_timeBetweenDate:[newsModel.published sm_dateFromUTCString] andDate:[NSDate date] formatterType:SMDateStringFormatterTypeNormal]];
     
