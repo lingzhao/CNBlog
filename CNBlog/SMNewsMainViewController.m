@@ -41,6 +41,7 @@
     [self addChildViewController:hotNews];
     
     [self.scrollView setContentSize:CGSizeMake(self.childViewControllers.count*self.view.width, 0)];
+
 }
 
 - (void)setupScrollView {

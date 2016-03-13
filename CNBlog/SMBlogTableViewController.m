@@ -144,13 +144,13 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // 传递参数, 跳转页面
     SMBlogViewController *blogVC = [[SMBlogViewController alloc] init];
     SMBlogModel *blogModel = self.blogArray[indexPath.row];
     blogVC.blogModel = blogModel;
-    self.hidesBottomBarWhenPushed = YES;
+    
     [self.navigationController pushViewController:blogVC animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end

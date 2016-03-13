@@ -143,11 +143,11 @@
 #pragma mark - TableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     SMNewsViewController *newsVC = [[SMNewsViewController alloc] init];
     newsVC.newsModel = self.newsArray[indexPath.row];
-    self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:newsVC animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end

@@ -25,6 +25,7 @@
     [super viewDidLoad];
     
     [self setupViewController];
+    
 }
 
 - (void)viewDidLayoutSubviews {
@@ -32,7 +33,6 @@
     [self setupTagMenu];
 
 }
-
 // 创建tagMenu
 - (void)setupTagMenu {
     // tag名称

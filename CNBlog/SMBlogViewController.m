@@ -26,13 +26,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     // 设置控制器
     [self setupVC];
     // 设置webView
     [self setupWebView];
     // 发送请求解析html
     [self loadHTML];
+}
+
+// push后隐藏tabBar
+- (BOOL)hidesBottomBarWhenPushed {
+    return YES;
 }
 
 - (void)setupVC {
@@ -45,7 +49,6 @@
     [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor]} forState:UIControlStateNormal];
     // 手势返回
     [self.navigationController.interactivePopGestureRecognizer setValue:self forKey:@"delegate"];
-    
     // 提示加载中
     [SVProgressHUD showWithStatus:@"加载中" maskType:SVProgressHUDMaskTypeBlack];
 }

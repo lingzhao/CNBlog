@@ -9,6 +9,7 @@
 #import "SMNewsViewController.h"
 #import "SMXMLParserTool.h"
 #import "SMNewsModel.h"
+#import "SMBlogLinkViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
 #define kPadding 8
@@ -30,6 +31,11 @@
     
     [self loadHTML];
     
+}
+
+// push后隐藏tabBar
+- (BOOL)hidesBottomBarWhenPushed {
+    return YES;
 }
 
 - (void)setupVC {
@@ -93,10 +99,19 @@
 #pragma mark - UIWebView Delegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSString *urlString = [[request URL] absoluteString];
-//    NSLog(@"%@", urlString);
+    NSString *urlStr = [[request URL] absoluteString];
     
-    return YES;
+    //为空，第一次加载本页面
+    if ([urlStr isEqualToString:@"about:blank"]) {
+        return YES;
+    }
+    //设置点击后的视图控制器
+    SMBlogLinkViewController *linkVC = [[SMBlogLinkViewController alloc] initWithURL:[NSURL URLWithString:urlStr] entersReaderIfAvailable:YES];
+    
+    //跳转到点击后的控制器并加载webview
+    [self presentViewController:linkVC animated:YES completion:nil];
+    
+    return  NO;
 }
 
 // 页面图片大小适应
@@ -127,7 +142,7 @@
                                        var imgs = document.getElementsByTagName('img');\
                                        for(var i=0; i<imgs.length; i++) {\
                                        imgs[i].onclick = function(){\
-                                       document.location = 'imageClick:'+this.src;}}}"];
+                                       document.location = this.src;}}}"];
     [webView stringByEvaluatingJavaScriptFromString:setImageOnclickString];
     [webView stringByEvaluatingJavaScriptFromString:@"setImageOnclick()"];
     

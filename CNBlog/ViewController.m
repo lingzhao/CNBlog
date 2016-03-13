@@ -56,7 +56,6 @@
     // 添加子控制器
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 //    nav.navigationBar.barStyle = UIBarStyleBlack;
-    
     [self addChildViewController:nav];
 }
 

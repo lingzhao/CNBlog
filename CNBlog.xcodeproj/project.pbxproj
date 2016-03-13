@@ -21,7 +21,6 @@
 		665FE5FA1C958DE500F3BD34 /* SMMoreBlogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665FE5F91C958DE500F3BD34 /* SMMoreBlogTableViewCell.m */; };
 		665FE5FD1C9593C200F3BD34 /* SMMoreBlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 665FE5FC1C9593C200F3BD34 /* SMMoreBlogModel.m */; };
 		665FE6061C95C95000F3BD34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F6F8901C84273D00043864 /* Assets.xcassets */; };
-		665FE6081C95C9A000F3BD34 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 665FE6071C95C9A000F3BD34 /* Default-568h@2x.png */; };
 		66A2FC521C95261A009E8B9A /* SMNewsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2FC511C95261A009E8B9A /* SMNewsMainViewController.m */; };
 		66A2FC581C9545D7009E8B9A /* SMTagMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2FC571C9545D7009E8B9A /* SMTagMenuView.m */; };
 		66A2FC5C1C95469D009E8B9A /* SMBlogMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2FC5B1C95469D009E8B9A /* SMBlogMainViewController.m */; };
@@ -66,7 +65,6 @@
 		665FE5F91C958DE500F3BD34 /* SMMoreBlogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMoreBlogTableViewCell.m; sourceTree = "<group>"; };
 		665FE5FB1C9593C200F3BD34 /* SMMoreBlogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMoreBlogModel.h; sourceTree = "<group>"; };
 		665FE5FC1C9593C200F3BD34 /* SMMoreBlogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMoreBlogModel.m; sourceTree = "<group>"; };
-		665FE6071C95C9A000F3BD34 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		66A2FC501C95261A009E8B9A /* SMNewsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNewsMainViewController.h; sourceTree = "<group>"; };
 		66A2FC511C95261A009E8B9A /* SMNewsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNewsMainViewController.m; sourceTree = "<group>"; };
 		66A2FC561C9545D7009E8B9A /* SMTagMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTagMenuView.h; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 		66F6F8781C84273D00043864 = {
 			isa = PBXGroup;
 			children = (
-				665FE6071C95C9A000F3BD34 /* Default-568h@2x.png */,
 				66F6F8831C84273D00043864 /* CNBlog */,
 				66F6F8821C84273D00043864 /* Products */,
 				3CE4364BBC55E9545F97996D /* Pods */,
@@ -400,7 +397,6 @@
 			files = (
 				665FE6061C95C95000F3BD34 /* Assets.xcassets in Resources */,
 				665FE5E71C95608800F3BD34 /* SMSettingMainTableViewController.storyboard in Resources */,
-				665FE6081C95C9A000F3BD34 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
