@@ -10,7 +10,7 @@
 #import "SMAttentionTableViewCell.h"
 #import "SMNewsModel.h"
 #import "SMCoreDataTool.h"
-#import "SMNewsViewController.h"
+#import "SMAttentionViewController.h"
 #import "CNNewsCoreData.h"
 
 @interface SMAttentionTableViewController ()
@@ -58,7 +58,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // 传递参数, 跳转页面
-    SMNewsViewController *attentionVC = [[SMNewsViewController alloc] init];
+    SMAttentionViewController *attentionVC = [[SMAttentionViewController alloc] init];
     SMNewsModel *newsModel = self.coreDataArray[indexPath.section];
     attentionVC.newsModel = newsModel;
     

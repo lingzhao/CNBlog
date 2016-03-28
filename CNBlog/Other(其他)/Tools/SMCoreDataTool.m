@@ -123,7 +123,7 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
     // 设置检索条件
     request.predicate = [NSPredicate predicateWithFormat:predicate];
-    NSLog(@"%@", request.predicate);
+//    NSLog(@"%@", request.predicate);
     // 查找操作
     return [self.sm_context executeFetchRequest:request error:nil];
 }
