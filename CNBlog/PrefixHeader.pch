@@ -15,5 +15,8 @@
 
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
+#define iOS8 ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0 ? YES : NO)
+
+#define collectionFilePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"collection.data"]
 
 #endif /* PrefixHeader_pch */

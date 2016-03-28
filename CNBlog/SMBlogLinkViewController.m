@@ -11,14 +11,8 @@
 
 @interface SMBlogLinkViewController ()
 
-@property (nonatomic, strong) UIWebView *webView;
-
 @end
 
 @implementation SMBlogLinkViewController
-
-- (void)viewDidLoad {
-    
-}
 
 @end

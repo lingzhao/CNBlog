@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="CNBlogCoreData" representedClassName="CNBlogCoreData" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="published" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uri" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CNNewsCoreData" representedClassName="CNNewsCoreData" syncable="YES">
+        <attribute name="postID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="published" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sourceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topicIcon" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CNBlogCoreData" positionX="-27" positionY="18" width="128" height="150"/>
+        <element name="CNNewsCoreData" positionX="-27" positionY="72" width="128" height="120"/>
+    </elements>
+</model>

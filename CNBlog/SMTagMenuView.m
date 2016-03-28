@@ -77,7 +77,10 @@
         [btn setTitleColor:TagNormalColor forState:UIControlStateNormal];
         [btn setTitleColor:TagSelectedColor forState:UIControlStateSelected];
         [btn setTitle:tagName forState:UIControlStateNormal];
+        // 单次点击事件
         [btn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        // 双击事件
+        [btn addTarget:self action:@selector(tagBtnDoubleClick:) forControlEvents:UIControlEventTouchDownRepeat];
         if (tag == 0) {
             [self tagBtnClick:btn];
         }
@@ -96,10 +99,10 @@
     [self addSubview:bottomLine];
 }
 
-// tag点击事件
+// tag单次点击事件
 - (void)tagBtnClick:(UIButton *)btn {
     if (btn.selected) return;
-    
+
     if (self.selectedButton) {
         self.selectedButton.selected = NO;
     }
@@ -117,6 +120,13 @@
     btn.selected = !btn.isSelected;
     self.selectedButton = btn;
     
+}
+
+// tag双击事件
+- (void)tagBtnDoubleClick:(UIButton *)btn {
+    if ([self.delegate respondsToSelector:@selector(smTagMenu:didDoubleClickButtonFrom:to:)]) {
+        [self.delegate smTagMenu:self.tagMenu didDoubleClickButtonFrom:self.selectedButton.tag to:btn.tag];
+    }
 }
 
 #pragma mark - <UIScrollViewDelegate>

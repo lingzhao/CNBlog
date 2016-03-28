@@ -13,7 +13,7 @@
 #import "SMBlogLinkViewController.h"
 #import "NSString+SMDateStringFormatter.h"
 
-#define kPadding 4
+#define kPadding 8
 
 @interface SMBlogViewController () <UIWebViewDelegate>
 
@@ -41,7 +41,7 @@
 
 - (void)setupVC {
     // 设置背景颜色
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     // 设置标题
     self.title = @"热门博客";
     // 设置返回按钮样式
@@ -60,14 +60,15 @@
     self.webView.delegate = self;
 //    [self.webView sizeToFit];
 //    self.webView.dataDetectorTypes = UIDataDetectorTypeLink;
-    self.webView.frame = CGRectMake(kPadding, kPadding, kScreenW - 2*kPadding, kScreenH - kPadding);
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(-4, 0, 0, 0);
+    self.webView.frame = self.view.frame;
+//    self.webView.scrollView.contentInset = UIEdgeInsetsMake(-4, 0, 0, 0);
+    
     // 去除多余滚动空间
-    for (id v in self.webView.subviews) {
+    /*for (id v in self.webView.subviews) {
         if ([v isKindOfClass:[UIScrollView class]]) {
             [v setBounces:NO];
         }
-    }
+    }*/
     
     [self.view addSubview:self.webView];
 //    self.webView.scrollView.showsVerticalScrollIndicator = NO;
@@ -109,7 +110,7 @@
 //        NSLog(@"%@", htmlContent);
         // 加入标题,时间和来源
         NSString *title = [NSString stringWithFormat:@"<h3>%@</h3>", weakSelf.blogModel.title];
-        NSString *publish = [NSString stringWithFormat:@"<h7>%@ <a href='%@'>%@</a></h7>", [weakSelf.blogModel.published sm_stringFromUTCString], weakSelf.blogModel.uri, weakSelf.blogModel.name];
+        NSString *publish = [NSString stringWithFormat:@"<h7>%@ <a href='%@'>%@</a></h7><hr/>", [weakSelf.blogModel.published sm_stringFromUTCString], weakSelf.blogModel.uri, weakSelf.blogModel.name];
         htmlContent = [NSString stringWithFormat:@"%@%@%@", title, publish, htmlContent];
         
         [weakSelf.webView loadHTMLString:htmlContent baseURL:nil];
@@ -175,11 +176,12 @@
                                        for(var i=0; i<imgs.length; i++) {\
                                        imgs[i].onclick = function(){\
                                        document.location = this.src;}}}"];
-    [webView stringByEvaluatingJavaScriptFromString:setImageOnclickString];
-    [webView stringByEvaluatingJavaScriptFromString:@"setImageOnclick()"];
+    
 
     // 加载完成
     dispatch_async(dispatch_get_main_queue(), ^{
+        [webView stringByEvaluatingJavaScriptFromString:setImageOnclickString];
+        [webView stringByEvaluatingJavaScriptFromString:@"setImageOnclick()"];
         [SVProgressHUD dismiss];
     });
 }

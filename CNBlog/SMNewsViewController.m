@@ -10,6 +10,8 @@
 #import "SMXMLParserTool.h"
 #import "SMNewsModel.h"
 #import "SMBlogLinkViewController.h"
+#import "SMCoreDataTool.h"
+#import "CNNewsCoreData.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
 #define kPadding 8
@@ -44,8 +46,13 @@
     // 设置标题
     self.title = @"新闻资讯";
     // 设置返回按钮样式
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backClick)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backItemClick)];
     [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor]} forState:UIControlStateNormal];
+    
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(addItemClick)];
+    rightBarItem.tintColor = [UIColor darkGrayColor];
+    [self.navigationItem setRightBarButtonItem:rightBarItem];
+    
     // 手势返回
     [self.navigationController.interactivePopGestureRecognizer setValue:self forKey:@"delegate"];
     
@@ -73,19 +80,19 @@
     __weak typeof(self) weakSelf = self;
     [SMXMLParserTool sm_toolWithURLString:urlString nodeName:nodeName completeHandler:^(NSArray *contentArray, NSError *error) {
         
-        weakSelf.newsModel = [SMNewsModel modelWithDictionary:contentArray[0]];
+        SMNewsModel *newsModel = [SMNewsModel modelWithDictionary:contentArray[0]];
         
         // 加入标题,时间和来源
-        NSString *title = [NSString stringWithFormat:@"<h2>%@</h2>", weakSelf.newsModel.title];
-        NSString *publish = [NSString stringWithFormat:@"<h7>%@   %@</h7><hr/>", weakSelf.newsModel.SubmitDate, weakSelf.newsModel.sourceName];
-        NSString *htmlContent = [NSString stringWithFormat:@"%@%@%@", title, publish, weakSelf.newsModel.Content];
+        NSString *title = [NSString stringWithFormat:@"<h2>%@</h2>", newsModel.title];
+        NSString *publish = [NSString stringWithFormat:@"<h7>%@   %@</h7><hr/>", newsModel.SubmitDate, newsModel.sourceName];
+        NSString *htmlContent = [NSString stringWithFormat:@"%@%@%@", title, publish, newsModel.Content];
         [weakSelf.webView loadHTMLString:htmlContent baseURL:nil];
         
     }];
 }
 
 // 返回按钮点击事件
-- (void)backClick {
+- (void)backItemClick {
     
     if ([self.webView canGoBack]) {
         [self.webView goBack];
@@ -94,6 +101,31 @@
     }
 }
 
+// 添加按钮点击
+- (void)addItemClick {
+    
+    [SVProgressHUD showSuccessWithStatus:@"关注成功"];
+    
+    // 异步保存数据到coredata
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // 加入前判断数据是否存在
+        NSArray *resultArr = [SMCoreDataTool sm_toolSearchDataWithEntity:@"CNNewsCoreData" andPredicate:[NSString stringWithFormat:@"postID LIKE '%@'", self.newsModel.postID]];
+        
+        if (resultArr.count > 0) return;
+        
+        // 把published属性值改为updated属性值
+        NSString *published = self.newsModel.published;
+        self.newsModel.published = self.newsModel.updated;
+        
+        [SMCoreDataTool sm_toolAddDataWithEntity:@"CNNewsCoreData" attributeModel:self.newsModel];
+        self.newsModel.published = published;
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
+}
 
 
 #pragma mark - UIWebView Delegate

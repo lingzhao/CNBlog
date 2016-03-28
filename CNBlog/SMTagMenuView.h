@@ -13,6 +13,8 @@
 @optional
 
 - (void)smTagMenu:(UIView *)tagMenu didSelectedButtonFrom:(NSInteger)from to:(NSInteger)to;
+// 双击事件
+- (void)smTagMenu:(UIView *)tagMenu didDoubleClickButtonFrom:(NSInteger)from to:(NSInteger)to;
 
 @end
 

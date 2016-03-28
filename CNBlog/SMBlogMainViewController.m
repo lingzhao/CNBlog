@@ -25,7 +25,6 @@
     [super viewDidLoad];
     
     [self setupViewController];
-    
 }
 
 - (void)viewDidLayoutSubviews {
@@ -35,6 +34,9 @@
 }
 // 创建tagMenu
 - (void)setupTagMenu {
+    // 只创建一次
+    if (self.tagMenuView)  return;
+    
     // tag名称
     NSArray *tagNames = @[@"首页博客", @"十日推荐", @"48小时阅读", @"推荐博客"];
     SMTagMenuView *tagMenu = [[SMTagMenuView alloc] initWithFrame:CGRectMake(0, self.topLayoutGuide.length, self.view.width, 44)];
@@ -65,6 +67,11 @@
 
 - (void)smTagMenu:(UIView *)tagMenu didSelectedButtonFrom:(NSInteger)from to:(NSInteger)to {
     self.selectedIndex = to;
+}
+
+- (void)smTagMenu:(UIView *)tagMenu didDoubleClickButtonFrom:(NSInteger)from to:(NSInteger)to {
+    UITableViewController *selectedVC = self.selectedViewController;
+    [selectedVC.tableView setContentOffset:CGPointMake(0, -108) animated:YES];
 }
 
 @end

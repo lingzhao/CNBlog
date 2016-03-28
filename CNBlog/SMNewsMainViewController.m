@@ -31,6 +31,7 @@
     
     //默认显示第0个控制器view
     [self scrollViewDidEndScrollingAnimation:self.scrollView];
+
 }
 
 - (void)setupViewController {

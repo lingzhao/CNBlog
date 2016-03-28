@@ -85,9 +85,19 @@
         [self addSubview:self.commentButton];
         [self addSubview:underLine];
         
+        // 添加向右滑动手势
+        UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cellDidSwipe)];
+        swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+        [self addGestureRecognizer:swipeGesture];
     }
     
     return self;
+}
+
+// 滑动手势
+- (void)cellDidSwipe {
+    //启动编辑状态
+    [self setEditing:YES animated:YES];
 }
 
 // 设置内容
